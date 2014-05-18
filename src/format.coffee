@@ -8,6 +8,18 @@ class Format
     LINE: 'line'
 
   @FORMATS:
+    bigheader:
+      tag: 'H1'
+      prepare: 'bigheader'
+
+    mediumheader:
+      tag: 'H2'
+      prepare: 'mediumheader'
+
+    regularheader:
+      tag: 'H3'
+      prepare: 'regularheader'
+
     bold:
       tag: 'B'
       prepare: 'bold'

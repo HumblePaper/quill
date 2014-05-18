@@ -10,7 +10,7 @@ DEFAULT_STYLES =
     'box-sizing'  : 'border-box'
     'cursor'      : 'text'
     'font-family' : "'Helvetica', 'Arial', sans-serif"
-    'font-size'   : '13px'
+    'font-size'   : '15px'
     'height'      : '100%'
     'line-height' : '1.42'
     'margin'      : '0px'
@@ -25,6 +25,9 @@ DEFAULT_STYLES =
     'white-space' : 'pre-wrap'
   '.editor-container p'          : { 'margin': '0', 'padding': '0' }
   '.editor-container a'          : { 'text-decoration': 'underline' }
+  '.editor-container h1'         : { 'font-weight': 'bold', 'font-family':'"Source Sans Pro"', 'font-size':'24px'}
+  '.editor-container h2'         : { 'font-weight': 'bold', 'font-family':'"Source Sans Pro"', 'font-size':'18px'}
+  '.editor-container h3'         : { 'font-weight': 'bold', 'font-family':'"Source Sans Pro"', 'font-size':'15px'}
   '.editor-container b'          : { 'font-weight': 'bold' }
   '.editor-container i'          : { 'font-style': 'italic' }
   '.editor-container s'          : { 'text-decoration': 'line-through' }
@@ -54,19 +57,20 @@ class Renderer
     ).join("\n")
 
   @buildFrame: (container) ->
-    iframe = container.ownerDocument.createElement('iframe')
-    iframe.setAttribute('frameBorder', '0')
+    iframe = container.ownerDocument.createElement('div')
+    # iframe.setAttribute('frameBorder', '0')
     iframe.setAttribute('height', '100%')
     iframe.setAttribute('width', '100%')
-    iframe.setAttribute('title', 'Quill Rich Text Editor')
+    # iframe.setAttribute('title', 'Quill Rich Text Editor')
     iframe.setAttribute('role', 'presentation')
     container.appendChild(iframe)
-    iframeDoc = iframe.contentWindow.document
-    iframeDoc.open()
-    iframeDoc.write('<!DOCTYPE html>')
-    iframeDoc.close()
-    root = iframeDoc.createElement('div')
-    iframeDoc.body.appendChild(root)
+    # iframeDoc = iframe.contentWindow.document
+    # iframeDoc.open()
+    # iframeDoc.write('<!DOCTYPE html>')
+    # iframeDoc.close()
+    root = container.ownerDocument.createElement('div')
+    iframe.appendChild(root)
+    container.appendChild(iframe)
     return [root, iframe]
 
   constructor: (@container, @emitter, @options = {}) ->

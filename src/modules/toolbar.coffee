@@ -8,7 +8,7 @@ class Toolbar
     container: null
 
   @formats:
-    BUTTON  : { 'bold', 'image', 'italic', 'link', 'strike', 'underline' }
+    BUTTON  : { 'bold', 'bigheader','mediumheader','regularheader','image', 'italic', 'link', 'strike', 'underline' }
     LINE    : { 'align' }
     SELECT  : { 'align', 'background', 'color', 'font', 'size' }
     TOOLTIP : { 'image', 'link' }
